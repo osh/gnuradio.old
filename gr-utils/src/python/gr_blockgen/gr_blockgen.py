@@ -186,6 +186,9 @@ class BGM( QtGui.QMainWindow ):
 
         ii_tmpl = open("template/ii.tmpl","r");
         self.ii = ii_tmpl.read();
+        
+        xml_tmpl = open("template/xml.tmpl","r");
+        self.xml = xml_tmpl.read();
 
         module = self.ui.txtModule.text();
         block = self.ui.txtBlock.text();
@@ -233,6 +236,9 @@ class BGM( QtGui.QMainWindow ):
         ii_out = open(str(self.ui.txtFnI.text()),"w");
         ii_out.writelines(self.ii);
         ii_out.close();
+        xml_out = open(str(self.ui.txtFnX.text()),"w");
+        xml_out.writelines(self.xml);
+        xml_out.close();
 
         self.ui.statusbar.showMessage("wrote %s, %s, and %s."%(str(self.ui.txtFnCC.text()),str(self.ui.txtFnH.text()),str(self.ui.txtFnI.text())));
 

@@ -97,5 +97,10 @@ namespace gr {
 #endif /* GR_CTRLPORT */
     }
 
+    void
+    dynamic_channel_model_impl::set_noise_amplitude(float amp){
+        d_noise->set_amplitude(amp);
+    }
+
   } /* namespace channels */
 } /* namespace gr */

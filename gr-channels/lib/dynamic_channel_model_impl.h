@@ -68,6 +68,8 @@ namespace gr {
 
       void setup_rpc();
 
+      void set_noise_amplitude(float amp);
+
     };
 
   } /* namespace channels */

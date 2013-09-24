@@ -81,6 +81,8 @@ namespace gr {
                                             double noise_amp,
                                             double noise_seed );
 
+
+      virtual void set_noise_amplitude(float amp) = 0;
     };
 
   } /* namespace channels */

@@ -9,9 +9,7 @@
 	<key>channels_dynamic_channel_model</key>
 	<import>from gnuradio import channels</import>
 	<make>channels.dynamic_channel_model( $samp_rate, $sro_stdev, $sro_maxdev, $cfo_stdev, $cfo_maxdev, $N, $fD, $LOS, $K, $delays, $mags, $ntaps, $noise_amp, $seed )</make>
-    <callback>set_fDTs($fDTs)</callback>
-    <callback>set_K($K)</callback>
-
+    <callback>set_noise_amplitude($noise_amp)</callback>
     <param>
         <name>Sample Rate Hz</name>
         <key>samp_rate</key>

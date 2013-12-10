@@ -68,11 +68,17 @@ class ParseDialog(gtk.Dialog):
             n = model.append(None, [str(k)]);
             for e in self._errors[k]:
                 # http://lxml.de/api/lxml.etree._LogEntry-class.html
-                model.append(n, [ "(%s:%s:%s) %s %s %s"%(e.filename, e.line, e.column, e.level_name, e.domain_name, e.message) ] )
-                
-            
+                em = model.append(n, [ "(%s:%s:%s) %s %s %s"%(e.filename, e.line, e.column, e.level_name, e.domain_name, e.message) ] )
+                try:
+                    sf = open(e.filename,'r');
+                    lc = sf.readlines()[e.line].rstrip('\n');
+                    model.append(em, [ lc]  )
+                except:
+                    model.append(em, ["could not access source file"]  )
+                    
+
         view = gtk.TreeView(model)
-        tvcolumn = gtk.TreeViewColumn('xml file')
+        tvcolumn = gtk.TreeViewColumn('XML Parser Errors by Filename')
         view.append_column(tvcolumn)
         cell = gtk.CellRendererText()
         tvcolumn.pack_start(cell, True)
